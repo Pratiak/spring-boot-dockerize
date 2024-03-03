@@ -1,7 +1,7 @@
 FROM maven AS stage1
 WORKDIR /app
-COPY src .
-COPY pom.xml .
+COPY . .
+COPY . .
 RUN mvn clean install
 
 FROM openjdk:8
