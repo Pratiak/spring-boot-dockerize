@@ -1,5 +1,12 @@
-FROM openjdk:8
+FROM maven AS stage1
 WORKDIR /app
-ADD . /app/app.jar
-CMD ["java","-jar","app.jar"]
-EXPOSE 8080
+COPY src .
+COPY pom.xml .
+RUN mvn clean install
+
+FROM openjdk:8
+WORKDIR /tmp
+COPY --from=stage1 /app/target/*.jar /tmp/*.jar
+ENTRYPOINT ["java","-jar","/usr/app/*.jar"]
+EXPOSE 8080 
+
