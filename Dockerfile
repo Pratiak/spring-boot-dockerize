@@ -7,6 +7,6 @@ RUN mvn clean install
 FROM openjdk:8
 WORKDIR /tmp
 COPY --from=stage1 /app/target/*.jar /tmp/*.jar
-ENTRYPOINT ["java","-jar","/usr/app/*.jar"]
+ENTRYPOINT ["java","-jar","*.jar"]
 EXPOSE 8080 
 
