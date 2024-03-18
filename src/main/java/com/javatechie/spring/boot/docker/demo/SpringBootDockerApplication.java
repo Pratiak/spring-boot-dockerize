@@ -14,11 +14,6 @@ public class SpringBootDockerApplication {
 		return "Welcome to JavaTechie..!!";
 	}
 
-	@GetMapping("/error")
-	public String getMessage() {
-		return "error found..!!";
-	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootDockerApplication.class, args);
 	}
